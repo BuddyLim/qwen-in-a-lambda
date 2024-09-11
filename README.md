@@ -86,6 +86,6 @@ http://localhost:3000/generate` to prompt the LLM
 
 - Depending on your use case also, the latency per lambda invocation and responses might incur poor user experiences
 
-### Conclusion
+## Conclusion
 
-All in all, I think this was a fun little experiment even though it didn't quite pan out to the budget & latency requirement via Qwen 1.5b for my side project. Thanks to @makit again for the guide!
+All in all, I think this was a fun little experiment even though it didn't quite pan out to the budget & latency requirement via Qwen 1.5b for my side project. Thanks to [@makit](https://github.com/makit) again for the guide!
