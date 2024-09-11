@@ -9,7 +9,7 @@ Updated at 11/09/2024
 - This is a minor research on how we can put Qwen GGUF model files into AWS Lambda using Docker and SAM CLI
 
 - Adapted from https://makit.net/blog/llm-in-a-lambda-function/
-  - As of September '24, some required OS packages are not included in the above guide and subsequently in the Dockerfile as potentially the llama-cpp-python does not include the required OS packages (?)
+  - As of September '24, some required OS packages are not included in the above guide and subsequently in the Dockerfile as potentially the llama-cpp-python @ 0.2.90 does not include the required OS packages (?)
   - Who knows if there's anything new and breaking that will appear in the future :shrugs:
 
 ## Motivation:
@@ -78,7 +78,7 @@ http://localhost:3000/generate` to prompt the LLM
   - [Pricing](<https://docs.aws.amazon.com/lambda/latest/operatorguide/computing-power.html#:~:text=Since%20the%20Lambda%20service%20charges,and%20duration%20(in%20seconds)>)
   - 1536 MB / 1.465 s / $0.024638 over 1000 Lambda invocations
     - Qwen2 1.5b had me cranking up the memory to 3008mb just to not time out and receive 4 - 11 seconds latency response!
-  - Claude 3 Haiku / $0.00025 / $0.00125 over 1000 input tokens & 1000 tokens / Asia - Tokyo
+  - Claude 3 Haiku / $0.00025 / $0.00125 over 1000 input tokens & 1000 output tokens / Asia - Tokyo
 
 - It may be cheaper to just use a hosted LLM using AWS Bedrock, etc.. on the cloud as the pricing structure for Lambda w/ Qwen does not look more competitive compared to Claude 3 Haiku
 
