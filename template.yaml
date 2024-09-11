@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  qwen-in-a-lambda
+
+  Sample SAM Template for qwen-in-a-lambda
+
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 128
+    LoggingConfig:
+      LogFormat: JSON
+Resources:
+  QwenFunction:
+    Type: AWS::Serverless::Function
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: qwen_function/
+      DockerTag: python3.11-v1
+    Properties:
+      PackageType: Image
+      MemorySize: 256
+      Timeout: 20
+      Events:
+        Generate:
+          Type: Api
+          Properties:
+            Path: /generate
+            Method: post
+
+Outputs:
+  QwenFunctionAPI:
+    Description: API Gateway endpoint URL for Prod stage for LLM function
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+  QwenFunction:
+    Description: Qwen Lambda Function ARN
+    Value: !GetAtt QwenFunction.Arn
+  QwenFunctionIamRole:
+    Description: Implicit IAM Role created for Qwen function
+    Value: !GetAtt QwenFunctionRole.Arn

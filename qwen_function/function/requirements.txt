@@ -1,0 +1,4 @@
+requests
+boto3
+boto3-stubs[essential]
+llama-cpp-python==0.2.90
