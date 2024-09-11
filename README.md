@@ -43,6 +43,7 @@ Updated at 11/09/2024
 http://localhost:3000/generate` to prompt the LLM
   - Or use your preferred API clients
 - Run `sam deploy --guided` to deploy to AWS
+- This will deploy a cloudformation stack consisting of an API gateway and a Lambda function
 
 ## Metrics
 
@@ -81,6 +82,8 @@ http://localhost:3000/generate` to prompt the LLM
   - Claude 3 Haiku / $0.00025 / $0.00125 over 1000 input tokens & 1000 output tokens / Asia - Tokyo
 
 - It may be cheaper to just use a hosted LLM using AWS Bedrock, etc.. on the cloud as the pricing structure for Lambda w/ Qwen does not look more competitive compared to Claude 3 Haiku
+
+- Furthermore, the API gateway timeout is not easily configurable beyond the 30s timeout, depending on your usecase, this may not be very ideal
 
 - Results via local is dependant on your machine specs!! and may heavily skew your perception, expectation vs reality
 
